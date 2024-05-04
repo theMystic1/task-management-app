@@ -6,7 +6,6 @@ import Platform from "./pages/Platform";
 import Marketing from "./pages/Marketing";
 import RoadMap from "./pages/RoadMap";
 import GlobalStyles from "./styles/GlobalStyles";
-import Test from "./pages/Test";
 
 function App() {
   const queryClient = new QueryClient();
@@ -26,7 +25,6 @@ function App() {
             <Route path="marketing" element={<Marketing />} />
 
             <Route path="roadmap" element={<RoadMap />} />
-            <Route path="test" element={<Test />} />
           </Route>
         </Routes>
       </BrowserRouter>
