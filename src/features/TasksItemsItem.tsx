@@ -3,6 +3,7 @@ import PageColumn from "../ui/PageColumns";
 import PageRow from "../ui/PageRow";
 import TaskItem from "../ui/TaskItem";
 import { useSpecificTask } from "../services/hooks/useSpecificTask";
+import { Span } from "./RoadmapItem";
 
 const StyledHeading = styled.h2`
   color: var(--color-gray-400);
@@ -42,28 +43,28 @@ function TaskItemItem({ filterString }: { filterString: string }): JSX.Element {
   return (
     <PageRow columns="repeat(3, 1fr)">
       <PageColumn>
-        <span className="flex gap-4">
+        <Span>
           <Circle color="#49c4e5" />
           <StyledHeading>todo ({todos?.length})</StyledHeading>
-        </span>
+        </Span>
         {todos?.map((todo, i) => (
           <TaskItem item={todo} key={i} />
         ))}
       </PageColumn>
       <PageColumn>
-        <span className="flex gap-4">
+        <Span>
           <Circle color="#8471f2" />
           <StyledHeading>Doing ({doing?.length})</StyledHeading>
-        </span>
+        </Span>
         {doing?.map((doing, i) => (
           <TaskItem item={doing} key={i} />
         ))}{" "}
       </PageColumn>
       <PageColumn>
-        <span className="flex gap-4">
+        <Span>
           <Circle color="#67e2ae" />
           <StyledHeading>done ({done?.length})</StyledHeading>
-        </span>
+        </Span>
         {done?.map((don, i) => (
           <TaskItem item={don} key={i} />
         ))}

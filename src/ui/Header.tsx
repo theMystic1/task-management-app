@@ -42,7 +42,7 @@ function Header() {
   return (
     <StyledHeader>
       <H1>{header}</H1>
-      <span className="flex items-center gap-6">
+      <span style={{ display: "flex", alignItems: "center", gap: "2.4rem" }}>
         <Modal>
           <Modal.Open opens="addTask">
             <Button>+Add New Task</Button>

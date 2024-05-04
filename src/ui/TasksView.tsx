@@ -72,9 +72,21 @@ function TasksView({ item }: TaskItemProps) {
   const completedTasks = subtasks.filter((sub) => sub.isCompleted);
   const completedTasksCount = completedTasks.length;
 
+  const StyledDiv = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `;
+
+  const Ul = styled.ul`
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  `;
+
   return (
     <StyledTaskView>
-      <div className="flex justify-between items-center">
+      <StyledDiv>
         <Header>{title}</Header>
         {/* <Modal>
           <Menus>
@@ -100,32 +112,40 @@ function TasksView({ item }: TaskItemProps) {
             </Menus.Menu>
           </Menus>
         </Modal> */}
-      </div>
+      </StyledDiv>
       <P>{description}</P>
       <span>
         <P as="h2">
           Subtasks ( {completedTasksCount} of {subtaskCount})
         </P>
-        <ul className="flex flex-col gap-4">
+        <Ul>
           {subtasks.map((tsk, i) => (
-            <SubTask className="flex items-center gap-4" key={i}>
+            <SubTask style={{ display: "flex", gap: "8px" }} key={i}>
               <input
                 type="checkbox"
                 defaultChecked={tsk.isCompleted}
-                className="w-8 h-8 accent-indigo-200"
+                style={{
+                  width: "24px",
+                  height: "24px",
+                  backgroundColor: tsk.isCompleted ? "#667EEA" : "transparent",
+                  borderWidth: "1px",
+                  borderStyle: "solid",
+                  borderColor: "#CBD5E0",
+                  // Add any additional styles here
+                }}
               />
+
               <span
-                className={`${
-                  tsk.isCompleted
-                    ? "line-through text-lightTheme-bgwhite-400"
-                    : ""
-                }`}
+                style={{
+                  textDecoration: tsk.isCompleted ? "line-through" : "none",
+                  color: tsk.isCompleted ? "#828fa3" : "", // Adjust the color according to your design
+                }}
               >
                 {tsk.title}
               </span>
             </SubTask>
           ))}
-        </ul>
+        </Ul>
       </span>
 
       <span>

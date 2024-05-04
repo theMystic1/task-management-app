@@ -11,10 +11,16 @@ type Placeholder = {
 function SubtaskInput({ placeholder, onDelete, inputId }: Placeholder) {
   return (
     <FormRow>
-      <div className="grid grid-cols-[1fr,3rem] gap-4 items-center">
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 3rem",
+          gap: "2rem",
+        }}
+      >
         <Input placeholder={placeholder} />
         <HiXMark
-          className="text-[3rem] font-bold cursor-pointer"
+          style={{ fontSize: "3rem", fontWeight: "700", cursor: "pointer" }}
           onClick={() => onDelete(inputId)}
         />
         {/* <img src="" alt="" /> */}

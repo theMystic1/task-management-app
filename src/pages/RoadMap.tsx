@@ -24,11 +24,18 @@ function RoadMap() {
   if (isLoading) return <p>Loading</p>;
 
   return (
-    <div className="h-screen w-full">
+    <div style={{ width: "100%", height: "100vh" }}>
       {tasks.length > 0 ? (
         <RoadmapItem filterString={filteredData} />
       ) : (
-        <div className="flex items-center justify-center h-full">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}
+        >
           <EmptyBoard />
         </div>
       )}

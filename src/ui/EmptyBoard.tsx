@@ -7,7 +7,17 @@ const P = styled.p`
 
 function EmptyBoard() {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 h-full w-full">
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "2rem",
+        height: "100%",
+        width: "100%",
+      }}
+    >
       <P>This Board is empty. Create a new column to get started.</P>
 
       <Button>+ Add New Column</Button>

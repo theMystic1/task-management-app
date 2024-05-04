@@ -11,16 +11,24 @@ type DeleteItem = {
 function Delete({ type, name }: DeleteItem) {
   return (
     <StyledTaskView>
-      <h1 className="text-[2.4rem] text-red-200 ">Delete this {type}?</h1>
+      <h1 style={{ color: "#ea5555", fontSize: "2.4rem" }}>
+        Delete this {type}?
+      </h1>
       <P as="h2">
         Are you sure you want to delete the '{name} board? This action will
         remove all columns and cannot be reversed
       </P>
-      <div className="flex justify-between gap-8">
-        <Button btnType="danger" className="w-full">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          gap: "2rem",
+        }}
+      >
+        <Button btnType="danger" style={{ width: "100%" }}>
           Delete
         </Button>
-        <Button btnType="secondary" className="w-full">
+        <Button btnType="secondary" style={{ width: "100%" }}>
           Cancel
         </Button>
       </div>

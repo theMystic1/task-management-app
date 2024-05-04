@@ -89,6 +89,8 @@ const HideBtn = styled.button`
   margin-top: 2rem;
   color: var(--color-gray-400);
   font-size: 2.4rem;
+  border: none;
+  background-color: transparent;
 `;
 
 const navLists = [
@@ -108,9 +110,17 @@ const navLists = [
 
 function MainNav() {
   return (
-    <nav className="relative h-full">
+    <nav style={{ position: "relative", height: "100%" }}>
       <NavList>
-        <li className="px-8 uppercase tracking-widest font-extrabold my-10">
+        <li
+          style={{
+            padding: "0 2rem",
+            letterSpacing: "0.1rem",
+            fontWeight: "800",
+            margin: "2.4rem 0",
+            textTransform: "uppercase",
+          }}
+        >
           all boards ({navLists.length})
         </li>
 
@@ -118,16 +128,32 @@ function MainNav() {
           <li key={nav.linkUrl}>
             <StyledNavLink to={nav.linkUrl}>
               <Img src="/assets/icon-board.svg" alt="icon" />
-              <span className="font-extrabold text-3xl">{nav.name}</span>
+              <span style={{ fontWeight: "800", fontSize: "2rem" }}>
+                {nav.name}
+              </span>
             </StyledNavLink>
           </li>
         ))}
 
         <Modal>
           <Modal.Open opens="board">
-            <li className="flex items-center px-10 gap-4 cursor-pointer">
+            <li
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "0 2.4rem",
+                gap: "2rem",
+              }}
+            >
               <Img src="/assets/icon-board.svg" alt="icon" />
-              <span className="font-extrabold text-3xl text-indigo-200 ">
+              <span
+                style={{
+                  fontWeight: "800",
+                  fontSize: "2rem",
+                  color: "#635fc7",
+                  cursor: "pointer",
+                }}
+              >
                 + Create New Board
               </span>
             </li>

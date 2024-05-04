@@ -55,7 +55,7 @@ function NewBoard({ type }: Props) {
         ))}
         <Button
           btnType="secondary"
-          className="w-full"
+          style={{ width: "100%" }}
           onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
             handleAddColumns(e)
           }

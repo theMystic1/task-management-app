@@ -60,7 +60,14 @@ function TaskItem({ item }: TaskItemProps) {
     // <Modal>
     //   <Modal.Open opens={title}>
     <StyledTaskItem>
-      <div className="flex justify-between items-center">
+      <div
+        className="flex justify-between items-center"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <H1>{title}</H1>
 
         <Modal>

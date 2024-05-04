@@ -11,6 +11,11 @@ const StyledHeading = styled.h2`
   font-weight: 600;
 `;
 
+export const Span = styled.span`
+  display: flex;
+  gap: 2rem;
+`;
+
 const Circle = styled.div`
   border-radius: 50%;
   height: 2.4rem;
@@ -43,28 +48,28 @@ function RoadmapItem({ filterString }: { filterString: string }): JSX.Element {
   return (
     <PageRow columns="repeat(3, 1fr)">
       <PageColumn>
-        <span className="flex gap-4">
+        <Span>
           <Circle color="#49c4e5" />
           <StyledHeading>Now ({nowTasks.length})</StyledHeading>
-        </span>
+        </Span>
         {nowTasks.map((task, index) => (
           <TaskItem item={task} key={index} />
         ))}
       </PageColumn>
       <PageColumn>
-        <span className="flex gap-4">
+        <Span>
           <Circle color="#8471f2" />
           <StyledHeading>Next ({nextTasks.length})</StyledHeading>
-        </span>
+        </Span>
         {nextTasks.map((task, index) => (
           <TaskItem item={task} key={index} />
         ))}
       </PageColumn>
       <PageColumn>
-        <span className="flex gap-4">
+        <Span>
           <Circle color="#67e2ae" />
           <StyledHeading>Later ({laterTasks.length})</StyledHeading>
-        </span>
+        </Span>
         {laterTasks.map((task, index) => (
           <TaskItem item={task} key={index} />
         ))}

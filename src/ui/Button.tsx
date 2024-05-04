@@ -17,6 +17,7 @@ const Button = styled.button<ButtonProps>`
   min-width: 20rem;
   border-radius: 2rem;
   font-weight: 600;
+  border: none;
 
   ${(props) => {
     if (props.btnType === "primary") {

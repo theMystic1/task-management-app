@@ -133,21 +133,25 @@ type ListProps = {
   children: ReactNode;
 };
 
+// List Component
 function List({ id, children }: ListProps) {
   const { openId, position, close } = useContext(MenusContext)!;
-  const ref = useOutsideClick(() => {
-    close(), false; // Call the close function when clicked outside
-  });
+  const ref = useOutsideClick(() => close());
 
-  if (openId !== id) return null;
+  if (openId !== id || !position) return null;
+
+  const { x, y } = position;
 
   return createPortal(
-    <StyledList position={position!} ref={ref}>
+    <StyledList position={{ x: x || 0, y: y || 0 }} ref={ref}>
       {children}
     </StyledList>,
     document.body
   );
 }
+
+// Ref callback function returns the ref object
+// const ref = useOutsideClick(() => close());
 
 // Button Component
 type ButtonProps = {
